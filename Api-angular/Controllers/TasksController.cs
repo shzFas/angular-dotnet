@@ -43,5 +43,25 @@ namespace Api_angular.Controllers
             }
             return Ok(task);
         }
+
+        [HttpPut]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> UpdateTask([FromRoute]Guid id, Tasks updateTasksRequest)
+        {
+            var task = await _fullStackDbContext.Tasks.FindAsync(id);
+
+            if(task == null)
+            {
+                return NotFound();
+            }
+
+            task.Name = updateTasksRequest.Name;
+            task.Description = updateTasksRequest.Description;
+            task.Status = updateTasksRequest.Status;
+
+            await _fullStackDbContext.SaveChangesAsync();
+
+            return Ok(task);
+        }
     }
 }
