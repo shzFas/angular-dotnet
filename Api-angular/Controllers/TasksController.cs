@@ -31,5 +31,17 @@ namespace Api_angular.Controllers
 
             return Ok(tasksRequest);
         }
+
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> GetTask([FromRoute]Guid id)
+        {
+            var task = await _fullStackDbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
+            if(task == null)
+            {
+                return NotFound();
+            }
+            return Ok(task);
+        }
     }
 }
