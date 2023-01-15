@@ -45,4 +45,13 @@ export class EditTasksComponent implements OnInit {
       })
   }
 
+  deleteTask(id: string) {
+    this.tasksService.deleteTask(id)
+      .subscribe({
+        next: (res) => {
+          this.router.navigate(['tasks'])
+        }
+      });
+  }
+
 }

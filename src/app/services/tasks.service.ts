@@ -28,4 +28,8 @@ export class TasksService {
   updateTask(id: string, updateTaskRequest: Tasks): Observable<Tasks> {
     return this.http.put<Tasks>(this.baseApiUrl + '/api/Tasks/' + id, updateTaskRequest)
   }
+
+  deleteTask(id: string): Observable<Tasks> {
+    return this.http.delete<Tasks>(this.baseApiUrl + '/api/Tasks/' + id);
+  }
 }

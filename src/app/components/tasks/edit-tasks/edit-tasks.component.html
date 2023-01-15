@@ -18,6 +18,7 @@
           <input type="checkbox" class="form-check-input" name="status" [(ngModel)]="taskDetails.status">
           <label class="form-check-label" for="exampleCheck1"> Задача выполнена</label>
         </div>
-        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <button type="submit" class="btn btn-primary mr-5">Сохранить</button>
+        <button type="button" class="btn btn-danger" (click)="deleteTask(taskDetails.id)">Удалить задачу</button>
     </form>
 </div>
