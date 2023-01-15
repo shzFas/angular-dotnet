@@ -16,7 +16,7 @@ export class TasksListsComponent implements OnInit {
     this.tasksService.getAllTasks()
       .subscribe({
         next: (tasks) => {
-          console.log(tasks);
+          this.tasks = tasks;
         },
         error: (response) => {
           console.log(response);
