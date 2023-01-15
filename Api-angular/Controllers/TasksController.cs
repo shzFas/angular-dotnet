@@ -63,5 +63,23 @@ namespace Api_angular.Controllers
 
             return Ok(task);
         }
+
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> DeleteTask([FromRoute] Guid id)
+        {
+            var task = await _fullStackDbContext.Tasks.FindAsync(id);
+
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            _fullStackDbContext.Tasks.Remove(task);
+
+            await _fullStackDbContext.SaveChangesAsync();
+
+            return Ok(task);
+        }
     }
 }
