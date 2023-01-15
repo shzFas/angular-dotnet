@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
+import { EditTasksComponent } from './components/tasks/edit-tasks/edit-tasks.component';
 import { TasksListsComponent } from './components/tasks/tasks-lists/tasks-lists.component';
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'tasks/add',
     component: AddTasksComponent,
+  },
+  {
+    path: 'tasks/edit/:id',
+    component: EditTasksComponent,
   }
 ];
 
