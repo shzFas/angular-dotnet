@@ -25,5 +25,7 @@ export class TasksService {
     return this.http.get<Tasks>(this.baseApiUrl + '/api/Tasks/' + id)
   }
 
-  updateTask(id: string, updateTask)
+  updateTask(id: string, updateTaskRequest: Tasks): Observable<Tasks> {
+    return this.http.put<Tasks>(this.baseApiUrl + '/api/Tasks/' + id, updateTaskRequest)
+  }
 }

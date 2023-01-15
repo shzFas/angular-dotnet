@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tasks } from 'src/app/models/tasks.model';
 import { TasksService } from 'src/app/services/tasks.service';
 
@@ -17,7 +17,7 @@ export class EditTasksComponent implements OnInit {
     status: true,
   };
 
-  constructor(private route: ActivatedRoute, private tasksService: TasksService) { }
+  constructor(private route: ActivatedRoute, private tasksService: TasksService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap
@@ -37,7 +37,12 @@ export class EditTasksComponent implements OnInit {
   }
 
   updateTask() {
-
+    this.tasksService.updateTask(this.taskDetails.id, this.taskDetails)
+      .subscribe({
+        next: (response) => {
+          this.router.navigate(['tasks'])
+        }
+      })
   }
 
 }
