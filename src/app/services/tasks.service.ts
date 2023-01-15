@@ -20,4 +20,8 @@ export class TasksService {
     addTaskRequest.id = '00000000-0000-0000-0000-000000000000'; /* Маска для рандомного айди задачи */
     return this.http.post<Tasks>(this.baseApiUrl + '/api/Tasks', addTaskRequest);
   }
+
+  getTask(id: string): Observable<Tasks> {
+    return this.http.get<Tasks>(this.baseApiUrl + '/api/Tasks/' + id)
+  }
 }
