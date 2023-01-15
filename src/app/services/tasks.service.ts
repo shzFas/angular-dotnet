@@ -15,4 +15,9 @@ export class TasksService {
   getAllTasks (): Observable<Tasks[]> {
     return this.http.get<Tasks[]>(this.baseApiUrl + '/api/Tasks');
   }
+
+  addTasks(addTaskRequest: Tasks): Observable<Tasks> {
+    addTaskRequest.id = '00000000-0000-0000-0000-000000000000'; /* Маска для рандомного айди задачи */
+    return this.http.post<Tasks>(this.baseApiUrl + '/api/Tasks', addTaskRequest);
+  }
 }

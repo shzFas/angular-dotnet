@@ -1,1 +1,19 @@
-<p>add-tasks works!</p>
+<div class="container my-5">
+    <h1 class="mb-3">Добавить задачу</h1>
+
+    <form #form="ngForm" (ngSubmit)="addTasks()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Название задачи</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addTaskRequest.name">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Описание задачи</label>
+            <textarea type="text" class="form-control" id="name" name="description" [(ngModel)]="addTaskRequest.description"></textarea>
+          </div>
+        <div class="mb-3">
+          <input type="checkbox" class="form-check-input" name="status" [(ngModel)]="addTaskRequest.status">
+          <label class="form-check-label" for="exampleCheck1"> Задача выполнена</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</div>
