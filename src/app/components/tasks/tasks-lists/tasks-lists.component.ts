@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tasks } from 'src/app/models/tasks.model';
+import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
   selector: 'app-tasks-lists',
@@ -8,29 +9,19 @@ import { Tasks } from 'src/app/models/tasks.model';
 })
 export class TasksListsComponent implements OnInit {
 
-  tasks: Tasks[] = [
-    {
-      id: '1',
-      name: 'Задача 1',
-      description: 'Отнеси подай принес иотнеси',
-      status: true,
-    },
-    {
-      id: '2',
-      name: 'Задача 2',
-      description: 'Отнесиподай принес иотнеси',
-      status: false,
-    },
-    {
-      id: '3',
-      name: 'Задача 3',
-      description: 'Отнесиподай принес иотнеси',
-      status: true,
-    },
-  ];
-  constructor() { }
+  tasks: Tasks[] = [];
+  constructor(private tasksService: TasksService) { }
 
   ngOnInit(): void {
+    this.tasksService.getAllTasks()
+      .subscribe({
+        next: (tasks) => {
+          console.log(tasks);
+        },
+        error: (response) => {
+          console.log(response);
+        }
+      });
   }
 
 }
