@@ -7,6 +7,7 @@
                 <th>Название</th>
                 <th>Описание</th>
                 <th>Статус</th>
+                <th>Кнопки</th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,7 @@
                 <td>{{ task.name }}</td>
                 <td>{{ task.description }}</td>
                 <td>{{ task.status }}</td>
+                <td><a [routerLink]="['/tasks', 'edit', task.id]">View</a></td>
             </tr>
         </tbody>
     </table>
