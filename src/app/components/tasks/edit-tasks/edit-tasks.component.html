@@ -1,7 +1,7 @@
 <div class="container my-5">
     <h1 class="mb-3">Изменить задачу</h1>
 
-    <form #form="ngForm" (ngSubmit)="editTask()">
+    <form #form="ngForm" (ngSubmit)="updateTask()">
         <div class="mb-3">
             <label for="name" class="form-label">Название задачи</label>
             <input type="text" class="form-control" id="id" name="id" readonly [(ngModel)]="taskDetails.id">

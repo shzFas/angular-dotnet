@@ -36,8 +36,8 @@ export class EditTasksComponent implements OnInit {
       })
   }
 
-  editTask() {
-    
+  updateTask() {
+
   }
 
 }
